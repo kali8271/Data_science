@@ -22,3 +22,29 @@ add_task("work completed")
 display_task()
 complete_task("Completed")
 display_task()
+
+# creating todo list using classes and object
+class TodoList:
+    def __init__(self,owner):
+        self.owner = owner
+        self.tasks = []
+
+    def add_task(self,task):
+        self.tasks.append(task)
+
+    def complete_task(self,task):
+        if task in self.tasks:
+            self.tasks.remove(task)
+            print(f"Task {task} is completed" )
+        else:
+            print("Task not found ")
+        
+    def display_task(self):
+        print(f"The to-do task of {self.owner} : ")
+        for task in self.tasks:
+            print(task)
+
+classExercise = TodoList("chand")
+classExercise.add_task("do this work")
+classExercise.add_task("I have to read")
+classExercise.display_task()
